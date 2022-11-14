@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\begin{axis}[%
+width=\columnwidth,
+height=0.618\columnwidth,
+xmin=0,
+xmax=5,
+xlabel={$g_m$},
+ymode=log,
+ymin=1e-5,
+ymax=1.5,
+yminorticks=true,
+ylabel={$|E'-E'_\mathrm{num}|/|E'_\mathrm{num}|$},
+legend style={at={(axis cs:0.2,2.3)}, legend cell align=left,anchor= south west, draw=black,fill=none,legend columns = 2,/tikz/nodes={yshift=2.5pt}}
+]
+\addplot [color=mycolor1, mark size=0.4pt, mark=*, mark options={solid, mycolor1}] table[x=gm,y=a0] {selfpinning_spectrum_fit.dat};
+\addlegendentry{$E' = -\frac{a_0^2}{2}$};
+\addplot [color=mycolor2,mark size=0.4pt, mark=*, mark options={solid, mycolor2}] table[x=gm,y=apin] {selfpinning_spectrum_fit.dat};
+\addlegendentry{$E' = -\frac{a_\mathrm{pin}^2}{2}$};
+\addplot [color=mycolor3,mark size=0.4pt, mark=*, mark options={solid, mycolor3}] table[x=gm,y=variational] {selfpinning_spectrum_fit.dat};
+\addlegendentry{$E' = \frac{a_\mathrm{pin}^2}{6}-\frac{2}{3}a_0a_\mathrm{pin}$};
+\addplot [color=mycolor4, mark size=0.4pt, mark=*, mark options={solid, mycolor4}] table[x=gm,y=geometric] {selfpinning_spectrum_fit.dat};
+\addlegendentry{$E' = -\frac{a_0a_\mathrm{pin}}{2}\vphantom{E' = -\frac{a_\mathrm{pin}^2}{2}}$};
+\end{axis}
+\end{tikzpicture}

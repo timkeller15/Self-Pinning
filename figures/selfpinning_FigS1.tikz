@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+\begin{axis}[%
+width=\columnwidth,
+height=0.618\columnwidth,
+xmin=0,
+xmax=5,
+xlabel={$g_m$},
+ymode=log,
+ymin=1e-3,
+ymax=1e2,
+yminorticks=true,
+ylabel={$\Delta E$},
+legend style={at={(axis cs:2.5,1.3e2)}, legend cell align=left,anchor= south, draw=black,fill=none,legend columns=3,column sep=2pt}
+]
+\addplot [color=mycolor1] table[x=gmix,y=NTG1] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$N=1$};
+\addplot [color=mycolor2] table[x=gmix,y=NTG3] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$N=3$};
+\addplot [color=mycolor3] table[x=gmix,y=NTG5] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$N=5$};
+\addplot [color=mycolor4] table[x=gmix,y=NTG7] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$N=7$};
+\addplot [color=mycolor6] table[x=gmix,y=NTG9] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$N=9$};
+\addplot [color=mycolor4_2] table[x=gmix,y=NTG11] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$N=11$};
+\addplot [color=black,dashed,forget plot] table[x=gmix,y=model] {selfpinning_zero_temperature_finite_size_gap.dat};
+\addlegendentry{$\Delta E \approx \frac{a_0a_\mathrm{pin}}{2}$};
+\coordinate (inset) at (axis cs:4.75,5e-3);
+\draw[dashed] (axis cs:0.25,20) -- (axis cs:0.65,20) node[right] {$\Delta E \approx \frac{a_0a_\mathrm{pin}}{2}$};
+\end{axis}
+
+\begin{axis}[%
+width=0.6\columnwidth,
+height=0.4\columnwidth,
+at={(inset)},
+anchor=south east,
+xmin=0.5,
+xmax=11.5,
+xtick={1,3,5,7,9,11},
+ymin=9.4,
+ymax=9.95
+]
+\node at (axis cs:1.2,9.5) {$N$};
+\node at (axis cs:9,9.83) {$g_m=3$};
+\addplot [color=black, draw=none, mark=*, mark options={solid, black},mark size = 1.0pt] table[x=NTG,y=gap]{selfpinning_zero_temperature_finite_size_gap_inset.dat};
+\end{axis}
+\end{tikzpicture}

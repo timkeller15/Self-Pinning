@@ -1,0 +1,29 @@
+\usepackage{pgfplots,tikz}
+\pgfplotsset{compat=newest} 
+\pgfplotsset{table/search path={data}}
+\usetikzlibrary{arrows.meta}
+
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{external} 
+\tikzexternalize
+
+\definecolor{mycolor1}{rgb}{0.00000,0.44706,0.74118}%
+\definecolor{mycolor2}{rgb}{0.85098,0.32549,0.09804}%
+\definecolor{mycolor3}{rgb}{0.92549,0.69020,0.14118}%
+\definecolor{mycolor4}{rgb}{0.46667,0.674510,0.18824}%
+\definecolor{mycolor4_2}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor6}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor7}{rgb}{0.64,0.08,0.18}%
+\pgfplotsset{
+     	colormap={reverse_smoothcoolwarm}{
+     		rgb=(0.706000,0.015992,0.150000)
+     		rgb=(0.887107,0.413948,0.324564)
+     		rgb=(0.967788,0.657029,0.537326)
+     		rgb=(0.930636,0.820338,0.761005)
+     		rgb=(0.788414,0.845878,0.939423)
+     		rgb=(0.602705,0.731256,0.999993)
+     		rgb=(0.406840,0.537717,0.934353)
+     		rgb=(0.230000,0.298999,0.754000)
+     	}
+}

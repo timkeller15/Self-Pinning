@@ -1,0 +1,36 @@
+\newcommand{\Tf}{9.575959}
+\begin{tikzpicture}
+\begin{groupplot}[group style = {group size=1 by 2, x descriptions at=edge bottom, y descriptions at=edge left, vertical sep=0.25cm,}, width = \columnwidth,height = 0.618\columnwidth,xmin=0.15,xmax=0.25,xlabel={$T/T_f$}]
+
+\nextgroupplot[ymin=0.32, ymax=1, ylabel={$P_N$}]
+\addplot [color=mycolor1,mark size=0.8pt, mark=*, mark options={solid, mycolor1},forget plot] table[x=T,y=NTG1] {selfpinning_finite_temperature_finite_size_pinnedness.dat};
+\addplot [color=mycolor2,mark size=0.4pt, mark=*, mark options={solid, mycolor2},forget plot] table[x=T,y=NTG3] {selfpinning_finite_temperature_finite_size_pinnedness.dat};
+\addplot [color=mycolor3,mark size=0.4pt, mark=*, mark options={solid, mycolor3},forget plot] table[x=T,y=NTG5] {selfpinning_finite_temperature_finite_size_pinnedness.dat};
+\addplot [color=mycolor4,mark size=0.4pt, mark=*, mark options={solid, mycolor4},forget plot] table[x=T,y=NTG7] {selfpinning_finite_temperature_finite_size_pinnedness.dat};
+\addplot [color=mycolor6,mark size=0.4pt, mark=*, mark options={solid, mycolor6},forget plot] table[x=T,y=NTG9] {selfpinning_finite_temperature_finite_size_pinnedness.dat};
+\addplot [color=black,mark size=0.8pt, mark=*, mark options={solid, black},forget plot] table[x=T,y=NTG11] {selfpinning_finite_temperature_finite_size_pinnedness.dat};
+\node at (axis cs:0.156,0.4) {(a)};
+\node at (axis cs:0.16,0.55) {Pinned};
+\node at (axis cs:0.225,0.8) {Thermal};
+\draw[dashed] (axis cs:1.652649/\Tf,0.32) -- (axis cs:1.652649/\Tf,1);
+\draw[dotted] (axis cs:1.895/\Tf,0.32) -- (axis cs:1.895/\Tf,1);
+
+\nextgroupplot[ymin=0.19, ymax=0.29, ylabel={$n(k=0)$},legend style={at={(axis cs:0.25,0.191)}, legend cell align=left,anchor= south east, font=\footnotesize,draw=none,fill=none,legend columns = 2,column sep=2pt}]
+\addplot [color=mycolor1,mark size=0.8pt, mark=*, mark options={solid, mycolor1}] table[x=T,y=NTG1] {selfpinning_finite_temperature_finite_size_momentum_peaks.dat};
+\addlegendentry{$N=1$};
+\addplot [color=mycolor2,mark size=0.4pt, mark=*, mark options={solid, mycolor2}] table[x=T,y=NTG3] {selfpinning_finite_temperature_finite_size_momentum_peaks.dat};
+\addlegendentry{$N=3$};
+\addplot [color=mycolor3,mark size=0.4pt, mark=*, mark options={solid, mycolor3}] table[x=T,y=NTG5] {selfpinning_finite_temperature_finite_size_momentum_peaks.dat};
+\addlegendentry{$N=5$};
+\addplot [color=mycolor4,mark size=0.4pt, mark=*, mark options={solid, mycolor4}] table[x=T,y=NTG7] {selfpinning_finite_temperature_finite_size_momentum_peaks.dat};
+\addlegendentry{$N=7$};
+\addplot [color=mycolor6,mark size=0.4pt, mark=*, mark options={solid, mycolor6}] table[x=T,y=NTG9] {selfpinning_finite_temperature_finite_size_momentum_peaks.dat};
+\addlegendentry{$N=9$};
+\addplot [color=black,mark size=0.8pt, mark=*, mark options={solid, black}] table[x=T,y=NTG11] {selfpinning_finite_temperature_finite_size_momentum_peaks.dat};
+\addlegendentry{$N=11$};
+\node at (axis cs:0.156,0.28) {(b)};
+\draw[dashed] (axis cs:1.652649/\Tf,0.19) -- (axis cs:1.652649/\Tf,0.29);
+\draw[dotted] (axis cs:1.895/\Tf,0.19) -- (axis cs:1.895/\Tf,0.29);
+
+\end{groupplot}
+\end{tikzpicture}

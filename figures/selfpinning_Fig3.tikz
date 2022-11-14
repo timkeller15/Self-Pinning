@@ -1,0 +1,65 @@
+\newcommand{\Tf}{9.575959}
+\begin{tikzpicture}
+\begin{axis}[%
+width=\columnwidth,
+height=0.5\columnwidth,
+xmin=0,
+xmax=5/\Tf,
+xlabel={$T/T_f$},
+ymin=0.15,
+ymax=0.3,
+ylabel={$n(k=0)$}
+]
+\addplot [color=mycolor1,mark size=0.4pt, mark=*, mark options={solid, mycolor1},forget plot] table[x=T,y=mompeak_num] {selfpinning_finite_temperature_NTG7_gMIX3_momentum_peaks.dat};
+\addplot [mark size=0.4pt, mark=*, mark options={solid, black},forget plot,restrict x to domain=0:0.169695] table[x=T,y=mompeak_ana] {selfpinning_finite_temperature_NTG7_gMIX3_momentum_peaks.dat};
+\draw[dashed,dash phase=-1.5pt] (axis cs:1.652649/\Tf,0.15) -- (axis cs:1.652649/\Tf,0.3);
+\coordinate (inset1) at (axis cs:0,0.36);
+\coordinate (inset2) at (axis cs:5/\Tf,0.36);
+\coordinate (origin1) at (axis cs:0,0.182037454);
+\coordinate (origin2) at (axis cs:2.02/\Tf,0.285583244);
+\end{axis}
+
+\begin{axis}[%
+width=0.56\columnwidth,
+height=0.42\columnwidth,
+at={(inset1)},
+anchor=south west,
+xmin=-20,
+xmax=20,
+xlabel={$k$},
+ymode=log,
+ymin=1e-7,
+ymax=1,
+yminorticks=true,
+ylabel={$n(k)$}
+]
+\coordinate (peak1) at (axis cs:0,0.182037454);
+\addplot [color=mycolor1,line width=1pt] table[x=k,y=momdis_zero] {selfpinning_finite_temperature_NTG7_gMIX3_momentum_distribution.dat};
+\addplot [color=mycolor1,dashed,line width=1pt,forget plot] table[x=k,y=momdis_pin] {selfpinning_finite_temperature_NTG7_gMIX3_momentum_distribution.dat};
+\end{axis}
+
+\begin{axis}[%
+width=0.56\columnwidth,
+height=0.42\columnwidth,
+at={(inset2)},
+anchor=south east,
+xmin=-20,
+xmax=20,
+xlabel={$k$},
+ymode=log,
+ymin=1e-7,
+ymax=1,
+yminorticks=true,
+yticklabel=\empty
+]
+\coordinate (peak2) at (axis cs:0,0.285583244);
+\addplot [color=mycolor2,line width=1pt] table[x=k,y=momdis_thermal] {selfpinning_finite_temperature_NTG7_gMIX3_momentum_distribution.dat};
+\addplot [color=mycolor2,dashed,line width=1pt,forget plot] table[x=k,y=momdis_gauss] {selfpinning_finite_temperature_NTG7_gMIX3_momentum_distribution.dat};
+\end{axis}
+
+\draw[dotted,black] (origin1) -- (peak1);
+\draw[dotted] (origin2) -- (peak2);
+\node at (0.45,5.6) {(a)};
+\node at (4.25,5.6) {(b)};
+\node at (0.25,2.4) {(c)};
+\end{tikzpicture}
