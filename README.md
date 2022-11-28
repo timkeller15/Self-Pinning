@@ -3,7 +3,9 @@
 This folder contains the Matlab scripts and resulting data used to create the figures in the publication
 
 > *Self-Pinning Transition of a Tonks-Girardeau Gas in a Bose-Einstein Condensate*
+> 
 > Tim Keller, Thomás Fogarty, and Thomas Busch
+> 
 > Physical Review Letters 128, 053401 (2022).
 
 Simulations were performed with *MATLAB R2019a* and can be executed e.g. via
